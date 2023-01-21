@@ -1,26 +1,29 @@
+using ApprovalTests;
+using ApprovalTests.Reporters;
 using ConsoleWithTests;
 using FluentAssertions;
 
 namespace XunitTest
 {
+    [UseReporter(typeof(DiffReporter))]
     public class CalculatorTest
     {
         [Fact]
-        public void Test1()
+        public void ShouldUseFluentAssertions()
         {
-            Assert.StrictEqual(1, 1);
+            int actual = 4 + 1;
+            actual.Should().Be(5);
         }
 
         [Fact]
         public void AddTwoPositiveNumbers()
         {
 
-
             const int firstValue = 1;
             const int secondValue = 2;
             int actual = Calculator.Add(firstValue, secondValue);
 
-            actual.Should().BeLessThan(10);
+            Approvals.Verify(actual);
 
         }
 
