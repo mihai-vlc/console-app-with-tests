@@ -15,9 +15,9 @@ namespace XunitTest
         public void AddTwoPositiveNumbers()
         {
 
-            int firstValue = 1;
-            int secondValue = 2;
 
+            const int firstValue = 1;
+            const int secondValue = 2;
             int actual = Calculator.Add(firstValue, secondValue);
 
             actual.Should().BeLessThan(10);
