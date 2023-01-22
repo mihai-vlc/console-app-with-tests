@@ -1,11 +1,10 @@
 using ApprovalTests;
 using ApprovalTests.Reporters;
-using ConsoleApp;
 using FluentAssertions;
 
-namespace TestsConsoleApp
+namespace ConsoleApp.Tests
 {
-    [UseReporter(typeof(DiffReporter))]
+    [UseReporter(typeof(VisualStudioReporter))]
     public class CalculatorTest
     {
         [Fact]
