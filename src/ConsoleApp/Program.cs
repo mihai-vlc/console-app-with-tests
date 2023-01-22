@@ -1,29 +1,28 @@
-﻿using ConsoleApp;
+﻿namespace ConsoleApp;
+
+using Terminal.Gui;
 
 internal class Program
 {
     private static void Main(string[] args)
     {
-        int a = 0;
-        int b = 0;
+        Application.Init();
 
-        Console.Write("a = ");
-        string? aVal = Console.ReadLine();
-        if (!string.IsNullOrEmpty(aVal))
+        TerminalView view = new TerminalView();
+
+        try
         {
-            a = int.Parse(aVal);
+            var running = true;
+            while (running)
+            {
+                var runToken = Application.Begin(view);
+                Application.RunLoop(runToken);
+                Application.End(runToken);
+            }
         }
-
-
-        Console.Write("b = ");
-        string? bVal = Console.ReadLine();
-        if (!string.IsNullOrEmpty(bVal))
+        finally
         {
-            b = int.Parse(bVal);
+            Application.Shutdown();
         }
-
-
-
-        Console.WriteLine("Result = {0}", Calculator.Add(a, b));
     }
 }
