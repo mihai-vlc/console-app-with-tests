@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <EditorConfigFiles Remove="C:\Users\ionutvmi\source\repos\ConsoleWithTests\ConsoleWithTests\.editorconfig" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="C:\Users\ionutvmi\source\repos\ConsoleWithTests\ConsoleWithTests\.editorconfig" />
+    <PackageReference Include="Terminal.Gui" Version="1.9.0" />
   </ItemGroup>
 
 </Project>

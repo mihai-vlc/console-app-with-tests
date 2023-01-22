@@ -1,4 +1,4 @@
-﻿namespace ConsoleWithTests
+﻿namespace ConsoleApp
 {
     internal class Person
     {

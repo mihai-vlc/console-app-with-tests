@@ -1,9 +1,9 @@
 using ApprovalTests;
 using ApprovalTests.Reporters;
-using ConsoleWithTests;
+using ConsoleApp;
 using FluentAssertions;
 
-namespace XunitTest
+namespace TestsConsoleApp
 {
     [UseReporter(typeof(DiffReporter))]
     public class CalculatorTest

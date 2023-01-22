@@ -1,4 +1,4 @@
-﻿namespace ConsoleWithTests
+﻿namespace ConsoleApp
 {
     public class Calculator
     {

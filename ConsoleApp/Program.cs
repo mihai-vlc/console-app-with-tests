@@ -1,4 +1,4 @@
-﻿using ConsoleWithTests;
+﻿using ConsoleApp;
 
 internal class Program
 {
