@@ -6,7 +6,7 @@ internal class Program {
     private static void Main(string[] args) {
         Application.Init();
 
-        TerminalView view = new TerminalView();
+        TerminalTopLevel view = new TerminalTopLevel();
 
         try {
             var running = true;
