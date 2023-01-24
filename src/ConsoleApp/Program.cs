@@ -2,26 +2,20 @@
 
 using Terminal.Gui;
 
-internal class Program
-{
-    private static void Main(string[] args)
-    {
+internal class Program {
+    private static void Main(string[] args) {
         Application.Init();
 
         TerminalView view = new TerminalView();
 
-        try
-        {
+        try {
             var running = true;
-            while (running)
-            {
+            while (running) {
                 var runToken = Application.Begin(view);
                 Application.RunLoop(runToken);
                 Application.End(runToken);
             }
-        }
-        finally
-        {
+        } finally {
             Application.Shutdown();
         }
     }
