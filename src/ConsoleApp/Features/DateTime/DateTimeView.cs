@@ -2,15 +2,13 @@
     using System;
     using Terminal.Gui;
 
-    internal class DateTimeView : View {
-        private Label content;
+    internal class DateTimeView : Label {
         private object? token;
 
         public DateTimeView() : base() {
-            content = new Label();
+            Text = "Loading...";
 
             Initialized += OnInitialized;
-            Add(this.content);
         }
 
         private void OnInitialized(object? sender, EventArgs e) {
@@ -18,7 +16,7 @@
         }
 
         private bool OnUpdate(MainLoop arg) {
-            content.Text = DateTime.Now.ToString();
+            Text = DateTime.Now.ToString();
 
             return true;
         }

@@ -1,4 +1,5 @@
-﻿using Terminal.Gui;
+﻿using ConsoleApp.Features.DateTime;
+using Terminal.Gui;
 
 namespace ConsoleApp;
 
@@ -8,12 +9,28 @@ internal class TerminalTopLevel : Toplevel {
         this.LayoutStyle = LayoutStyle.Computed;
         this.currentRow = Pos.Top(this);
 
-        AddElement(
+        var title = new View() {
+            X = Pos.Center(),
+            Width = Dim.Fill(),
+            AutoSize = true,
+            Height = 2,
+        };
+
+        title.Add(
             new Label("My application") {
-                X = Pos.Center()
-            },
-            2
+                X = Pos.Left(title) + 2
+            }
         );
+
+        title.Add(
+            new DateTimeView() {
+                X = Pos.AnchorEnd(25)
+            }
+        );
+
+        AddElement(title);
+
+        AddElement(new LineView(), 2);
 
         AddElement(
             new Label("Username") {
@@ -42,33 +59,6 @@ internal class TerminalTopLevel : Toplevel {
             }
         );
 
-
-        /*
-        Add(
-            new Label("Username") {
-                X = Pos.Center(),
-                Y = Pos.Top(this) + 2,
-                Height = 1,
-            }
-        );
-
-
-
-
-        Add(
-            new ColorPicker("Favorite color") {
-                X = Pos.Center(),
-                Y = Pos.Top(this) + 6,
-            }
-        );
-
-        Add(
-            new Button() {
-                X = Pos.Center(),
-                Y = Pos.Top(this) + 16
-            }
-        );
-        */
     }
 
     private void AddElement(View view, int marginBottom = 0) {
