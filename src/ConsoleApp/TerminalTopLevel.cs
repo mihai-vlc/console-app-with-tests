@@ -1,4 +1,5 @@
-﻿using ConsoleApp.Features.DateTime;
+﻿using ConsoleApp.Features.Buttons;
+using ConsoleApp.Features.DateTime;
 using Terminal.Gui;
 
 namespace ConsoleApp;
@@ -13,7 +14,7 @@ internal class TerminalTopLevel : Toplevel {
             X = Pos.Center(),
             Width = Dim.Fill(),
             AutoSize = true,
-            Height = 2,
+            Height = Dim.Sized(2),
         };
 
         title.Add(
@@ -41,7 +42,7 @@ internal class TerminalTopLevel : Toplevel {
         AddElement(
             new TextField("") {
                 X = Pos.Center(),
-                Width = Dim.Percent(80),
+                Width = Dim.Percent(80)
             },
             1
         );
@@ -54,7 +55,14 @@ internal class TerminalTopLevel : Toplevel {
         );
 
         AddElement(
-            new Button("Save") {
+            new PrimaryButton("Save") {
+                X = Pos.Center()
+            },
+            1
+        );
+
+        AddElement(
+            new PrimaryButton("Cancel") {
                 X = Pos.Center()
             }
         );
