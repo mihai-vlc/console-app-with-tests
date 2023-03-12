@@ -4,7 +4,7 @@ using NStack;
 using Terminal.Gui;
 
 internal class PrimaryButton : Button {
-    public PrimaryButton(ustring text, bool is_default = false) : base(text, is_default) {
+    public PrimaryButton(ustring text, Action handleClick = null, bool is_default = false) : base(text, is_default) {
         this.ColorScheme = new ColorScheme {
             Normal = new(Color.White, Color.BrightBlue),
             HotNormal = new(Color.White, Color.BrightBlue),
@@ -13,9 +13,13 @@ internal class PrimaryButton : Button {
             Disabled = new(Color.White, Color.Gray)
         };
 
+        if (handleClick != null) {
+            this.Clicked += handleClick;
+        }
     }
 
     protected override void UpdateTextFormatterText() {
         TextFormatter.Text = " " + Text + " ";
     }
+
 }

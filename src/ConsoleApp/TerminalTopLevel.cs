@@ -62,10 +62,21 @@ internal class TerminalTopLevel : Toplevel {
         );
 
         AddElement(
-            new PrimaryButton("Cancel") {
+            new PrimaryButton("Close", () => {
+                    var n = MessageBox.Query(50, 7,
+                        "Question", 
+                        "Are you sure you want to exit ?", 
+                        "Yes", "No"
+                    );
+
+                    if (n == 0) {
+                        Application.RequestStop();
+                    }
+                }) {
                 X = Pos.Center()
             }
         );
+
 
     }
 
